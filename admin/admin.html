@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - CET Nº1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root {
+            --admin-bg: #f0f2f5;
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        body { background-color: var(--admin-bg); }
+        
+        .admin-layout {
+            max-width: 1000px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .admin-header {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .admin-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .admin-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
+        }
+
+        .file-upload-wrapper {
+            position: relative;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .file-upload-wrapper:hover {
+            border-color: var(--primary-color);
+            background: rgba(0, 168, 232, 0.02);
+        }
+
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; cursor: pointer;
+        }
+
+        #previews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .preview-img-item {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+
+        .news-manage-list {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .news-manage-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .news-manage-item:hover {
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-manage-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .news-manage-info { flex: 1; }
+        .news-manage-info strong { display: block; font-size: 0.95rem; }
+        .news-manage-info small { color: #888; font-size: 0.8rem; }
+
+        .btn-delete-admin {
+            background: #fff0f0;
+            color: #ff4d4d;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-delete-admin:hover {
+            background: #ff4d4d;
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            .admin-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-layout">
+        <header class="admin-header">
+            <div class="logo-container">
+                <img src="../Img/Logo.webp" alt="Logo" class="nav-logo" style="height: 40px;">
+                <span class="logo-text">Panel Admin</span>
+            </div>
+            <a href="../index.html" class="btn btn-outline" style="padding: 8px 20px; font-size: 0.8rem; color: var(--secondary-color); border-color: #ddd;">Ver Web</a>
+        </header>
+
+        <!-- Columna Izquierda: Formulario -->
+        <section class="admin-card">
+            <h2><i class="fas fa-plus-circle"></i> Nueva Novedad</h2>
+            <form id="uploadForm">
+                <div class="form-group">
+                    <label>Título de la Noticia</label>
+                    <input type="text" id="title" placeholder="Ej: Nueva maquinaria en taller" required>
+                </div>
+                <div class="form-group">
+                    <label>Contenido detallado</label>
+                    <textarea id="content" placeholder="Escribe aquí el cuerpo de la noticia..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Imágenes de la noticia</label>
+                    <div class="file-upload-wrapper">
+                        <i class="fas fa-cloud-upload-alt" style="font-size: 2rem; color: #ccc; margin-bottom: 10px;"></i>
+                        <p style="font-size: 0.85rem; color: #888;">Arrastra o haz clic para seleccionar fotos</p>
+                        <input type="file" id="image" accept="image/*" multiple>
+                    </div>
+                    <div id="previews-container"></div>
+                </div>
+                <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%; padding: 15px;">
+                    <i class="fas fa-paper-plane"></i> Publicar Ahora
+                </button>
+                <div id="statusMsg" class="status-msg"></div>
+            </form>
+        </section>
+
+        <!-- Columna Derecha: Gestión -->
+        <section class="admin-card">
+            <h2><i class="fas fa-tasks"></i> Gestionar Publicaciones</h2>
+            <div class="news-manage-list" id="admin-news-list">
+                <p class="text-center text-secondary">Cargando...</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
