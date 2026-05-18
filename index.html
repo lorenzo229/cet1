@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CET Nº1 Don Antonio Sánchez Platero</title>
+    <!-- Google Fonts: Inter para un look minimalista y moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo-container">
+                <img src="Img/Logo.webp" alt="CET Nº1 Logo" class="nav-logo">
+                <span class="logo-text">CET Nº1</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="novedades.html">Novedades</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Orientaciones <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="mecanica.html">Mecánica</a>
+                        <a href="informatica.html">Informática</a>
+                    </div>
+                </li>
+                <li><a href="informacion.html">Información</a></li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-bg">
+            <img src="Img/imag principal (1).webp" alt="CET Nº1 Fachada" onerror="this.src='https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&w=1920&q=80'">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content" data-aos="fade-up">
+            <h1>CET Nº1 <br><span>Sánchez Platero</span></h1>
+            <div class="hero-btns">
+                <a href="#contacto" class="btn btn-primary">Contactanos</a>
+                <a href="#especialidades" class="btn btn-outline">Conocer más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialty Sections Container -->
+    <main id="especialidades">
+        
+        <!-- Mecánica Section (Image Right, Text Left) -->
+        <section class="specialty-feature section">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="feature-text" data-aos="fade-right">
+                        <h2>Especialidad Mecánica</h2>
+                        <p>Formación técnica de vanguardia en el diseño, mantenimiento y reparación de sistemas mecánicos industriales. Nuestros talleres están equipados para que los estudiantes dominen las herramientas del mañana, desde tornería hasta sistemas de motores avanzados.</p>
+                        <a href="mecanica.html" class="btn btn-primary">Conocer más</a>
+                    </div>
+                    <div class="feature-image" data-aos="fade-left">
+                        <div class="img-frame">
+                            <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=800&q=80" alt="Taller de Mecánica">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informática Section (Image Left, Text Right) -->
+        <section class="specialty-feature section bg-light">
+            <div class="container">
+                <div class="feature-grid reverse">
+                    <div class="feature-text" data-aos="fade-left">
+                        <h2>Especialidad Informática</h2>
+                        <p>Sumergite en el mundo del desarrollo de software, redes y ciberseguridad. Preparamos a los futuros profesionales IT con un enfoque práctico en programación moderna, gestión de datos y soluciones tecnológicas innovadoras para los desafíos globales.</p>
+                        <a href="informatica.html" class="btn btn-primary">Conocer más</a>
+                    </div>
+                    <div class="feature-image" data-aos="fade-right">
+                        <div class="img-frame">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Laboratorio de Informática">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-simple">
+                <a href="#" class="logo-container" style="justify-content: center; margin-bottom: 25px;">
+                    <img src="Img/Logo.webp" alt="CET Nº1 Logo" class="nav-logo" style="height: 60px;">
+                    <span class="logo-text" style="color: white;">CET Nº1</span>
+                </a>
+                <p>Av. Tecnológica 123, Ciudad, Argentina | +54 299 123-4567</p>
+                <div class="social-links">
+                    <a href="#" title="Instagram: @cet1.roca"><i class="fab fa-instagram"></i> @cet1.roca</a>
+                    <a href="#" title="Facebook: CET Nº1"><i class="fab fa-facebook"></i> CET Nº1</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 CET Nº1 Sánchez Platero. Todos los derechos reservados.</p>
+                    <button id="admin-btn" class="btn-admin-temp">Panel Admin</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

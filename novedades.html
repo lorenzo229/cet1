@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades - CET Nº1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="index.html" class="logo-container">
+                <img src="Img/Logo.webp" alt="CET Nº1 Logo" class="nav-logo">
+                <span class="logo-text">CET Nº1</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="novedades.html">Novedades</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Orientaciones <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="mecanica.html">Mecánica</a>
+                        <a href="informatica.html">Informática</a>
+                    </div>
+                </li>
+                <li><a href="informacion.html">Información</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="section bg-light" style="padding-top: 150px;">
+        <div class="container text-center" data-aos="fade-up">
+            <h1 class="secondary-color" style="font-size: 3rem; margin-bottom: 20px;">Novedades Institucionales</h1>
+            <p class="text-secondary">Mantenete al tanto de las últimas noticias, eventos y logros de nuestra comunidad educativa.</p>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container" id="news-realtime-container">
+            <!-- El contenido se cargará dinámicamente desde Firebase -->
+            <div class="text-center" data-aos="fade-up">
+                <div class="loader-inline" style="display: inline-block; width: 40px; height: 40px; border-width: 4px;"></div>
+                <p class="text-secondary" style="margin-top: 15px;">Cargando novedades...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase y Lógica Realtime -->
+    <script type="module" src="Admin/admin.js"></script>
+
+    <footer>
+        <div class="container">
+            <div class="footer-simple">
+                <a href="index.html" class="logo-container" style="justify-content: center; margin-bottom: 25px;">
+                    <img src="Img/Logo.webp" alt="CET Nº1 Logo" class="nav-logo" style="height: 60px;">
+                    <span class="logo-text" style="color: white;">CET Nº1</span>
+                </a>
+                <div class="social-links">
+                    <a href="#" title="Instagram: @cet1.roca"><i class="fab fa-instagram"></i> @cet1.roca</a>
+                    <a href="#" title="Facebook: CET Nº1"><i class="fab fa-facebook"></i> CET Nº1</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 CET Nº1 Sánchez Platero. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
